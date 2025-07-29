@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <title>Countdown bis ich wieder da bin 💕</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #fff0f5;
+      text-align: center;
+      padding-top: 80px;
+      color: #333;
+    }
+    h1 {
+      font-size: 2em;
+      color: #6349f5;
+    }
+    #countdown {
+      font-size: 3em;
+      margin: 20px 0;
+    }
+    p {
+      font-size: 1.2em;
+    }
+  </style>
+</head>
+<body>
+  <h1>Nur noch:</h1>
+  <div id="countdown">Lädt...</div>
+  <p>...bis ich wieder bei dir bin my Love 💖</p>
+
+  <script>
+    // Zielzeit: 26. August 2025 um 13:55 Uhr MESZ (UTC+2)
+    const returnTime = new Date("2025-08-26T13:55:00+02:00").getTime();
+
+    const timer = setInterval(function() {
+      const now = new Date().getTime();
+      const distance = returnTime - now;
+
+      if (distance <= 0) {
+        clearInterval(timer);
+        document.getElementById("countdown").innerHTML = "Ich bin wieder da meine Schatz! 💞";
+        return;
+      }
+
+      const totalMinutes = Math.floor(distance / (1000 * 60));
+      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+      document.getElementById("countdown").innerHTML = 
+        totalMinutes + " Minuten " + seconds + " Sekunden";
+    }, 1000);
+  </script>
+</body>
+</html>
